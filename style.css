@@ -1,0 +1,67 @@
+:root{
+  --primary:#004aad;
+  --accent:#eea1dc;
+  --card-shadow: rgba(0,0,0,0.08);
+  --page-max:1100px;
+  --gutter:18px;
+  --frame-radius:10px;
+  --frame-border:6px;
+  --frame-aspect:16/9;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:'Montserrat', Arial, sans-serif;
+  background-image: url('file:///C:/Users/KRISH/OneDrive/Desktop/background%20banner%202.jpg');
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  background-attachment:fixed;
+  color:#222;
+}
+
+header{
+  background:#fff;
+  padding:12px 0;
+  box-shadow:0 2px 8px rgba(0,0,0,0.03);
+  position:sticky;
+  top:0;
+  z-index:30;
+}
+.header-content{
+  max-width:var(--page-max);
+  margin:0 auto;
+  padding:0 var(--gutter);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+}
+.brand img{ height:48px; border-radius:8px; }
+.org-name{ font-size:20px; font-weight:700; color:var(--accent); }
+
+.nav-btn{ padding:8px 12px; color:var(--accent); font-weight:600; text-decoration:none; border-radius:8px; transition:background .12s,transform .12s; }
+.nav-btn:hover{ background:rgba(238,161,220,0.08); transform:translateY(-2px); }
+
+main{ padding:28px var(--gutter) 52px; max-width:var(--page-max); margin:0 auto; }
+
+#services h2{ text-align:center; font-size:26px; color:#333; margin:6px 0 22px; }
+
+.samples{ display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:20px; }
+
+.card{ background:rgba(255,255,255,0.95); border-radius:12px; box-shadow:0 6px 18px var(--card-shadow); overflow:hidden; transition:transform .18s, box-shadow .18s; display:flex; flex-direction:column; }
+.card:hover{ transform:translateY(-6px); box-shadow:0 12px 30px rgba(0,0,0,0.12); }
+
+.media-frame{ aspect-ratio:var(--frame-aspect); border:var(--frame-border) solid #fff; border-radius:8px; overflow:hidden; background:#000; }
+
+.card-content{ padding:12px 14px 16px; }
+.card-content h3{ color:var(--accent); margin:10px 0; font-size:18px; }
+
+footer{ padding:28px 18px; background:linear-gradient(90deg,#eea1dc,#eea1dc); color:#fff; text-align:center; margin-top:40px; }
+
+@media(max-width:560px){
+  .org-name{ font-size:16px; }
+  .media-frame{ aspect-ratio:4/3; }
+}
