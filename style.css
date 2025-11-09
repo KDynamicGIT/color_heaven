@@ -12,14 +12,15 @@
 /* Reset & Body */
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 html, body {
   height: 100%;
 }
 body {
-  margin: 0;
   font-family: 'Montserrat', Arial, sans-serif;
-  background-image: url('file:///C:/Users/KRISH/OneDrive/Desktop/background%20banner%202.jpg');
+  background-image: url('background-banner-2.jpg'); /* ✅ Place this image in same folder as HTML */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -104,23 +105,25 @@ main {
 /* GRID */
 .samples {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
-  align-items: start;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  align-items: stretch; /* ✅ Ensures equal card height */
+  justify-items: center;
 }
 
 /* CARD */
 .card {
   background: rgba(255, 255, 255, 0.95);
   width: 100%;
-  max-width: 380px;
-  margin: 0 auto;
+  max-width: 320px;
   border-radius: 12px;
   box-shadow: 0 6px 18px var(--card-shadow);
   overflow: hidden;
   transition: transform .18s ease, box-shadow .18s ease;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  min-height: 440px; /* ✅ Uniform height */
 }
 .card:hover {
   transform: translateY(-6px);
@@ -129,6 +132,7 @@ main {
 .card-media {
   padding: 12px;
   background: transparent;
+  flex-grow: 1;
 }
 .media-frame {
   width: 100%;
@@ -150,8 +154,9 @@ main {
 .media-frame .video-embed {
   width: 100%;
   height: 100%;
-  display: block;
   object-fit: cover;
+  display: block;
+  border-radius: 8px;
 }
 
 /* BEFORE-AFTER */
@@ -200,26 +205,6 @@ main {
   background: var(--accent);
   border-radius: 50%;
 }
-.ba-gesture {
-  position: absolute;
-  right: 12px;
-  bottom: 12px;
-  display: flex;
-  gap: 8px;
-  align-items: center;
-  background: rgba(0, 0, 0, 0.45);
-  color: #fff;
-  padding: 6px 10px;
-  border-radius: 20px;
-  font-size: 13px;
-  animation: gesture-breathe 1.6s ease-in-out infinite;
-  pointer-events: none;
-}
-@keyframes gesture-breathe {
-  0% { transform: scale(1); }
-  50% { transform: scale(.98); }
-  100% { transform: scale(1); }
-}
 
 /* VIDEO */
 .video-thumb-link {
@@ -264,8 +249,9 @@ main {
 
 /* CARD CONTENT */
 .card-content {
-  padding: 12px 14px 16px;
-  flex: 0 0 auto;
+  padding: 14px 16px 18px;
+  flex-shrink: 0;
+  text-align: left;
 }
 .card-content h3 {
   color: var(--accent);
@@ -275,7 +261,7 @@ main {
 .card-content p {
   color: #333;
   font-size: 14px;
-  line-height: 1.35;
+  line-height: 1.4;
   margin: 0;
 }
 
@@ -303,8 +289,7 @@ footer {
   :root { --frame-border: 4px; }
   .org-name { font-size: 18px; }
   .brand img { height: 44px; }
-  .card { max-width: 100%; }
-  .carousel-btn { width: 32px; height: 32px; }
+  .card { max-width: 100%; min-height: 400px; }
 }
 @media (max-width: 560px) {
   header .header-content { padding: 8px; }
