@@ -6,7 +6,7 @@
   --gutter:18px;
   --frame-radius:10px;
   --frame-border:6px;
-  --frame-aspect:16/9;
+  /* --frame-aspect:16/9;  Remove this if you want native image aspect ratio */
 }
 
 *{box-sizing:border-box}
@@ -54,7 +54,27 @@ main{ padding:28px var(--gutter) 52px; max-width:var(--page-max); margin:0 auto;
 .card{ background:rgba(255,255,255,0.95); border-radius:12px; box-shadow:0 6px 18px var(--card-shadow); overflow:hidden; transition:transform .18s, box-shadow .18s; display:flex; flex-direction:column; }
 .card:hover{ transform:translateY(-6px); box-shadow:0 12px 30px rgba(0,0,0,0.12); }
 
-.media-frame{ aspect-ratio:var(--frame-aspect); border:var(--frame-border) solid #fff; border-radius:8px; overflow:hidden; background:#000; }
+/* === EDIT BELOW: THE MEDIA FRAME/IMAGE HANDLING === */
+.media-frame{ 
+  /* Remove the aspect-ratio prop for native sizing. */
+  /* aspect-ratio:var(--frame-aspect); */
+  border:var(--frame-border) solid #fff; 
+  border-radius:8px; 
+  overflow:hidden; 
+  background:#000; 
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  /* Optionally, add min-height/min-width if you don't want near-0 frames for tiny images/videos */
+}
+.media-frame img, 
+.media-frame video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* or "cover" if you want fill */
+  display: block;
+}
+/* ===== END OF MEDIA FRAME EDIT ===== */
 
 .card-content{ padding:12px 14px 16px; }
 .card-content h3{ color:var(--accent); margin:10px 0; font-size:18px; }
@@ -63,5 +83,5 @@ footer{ padding:28px 18px; background:linear-gradient(90deg,#eea1dc,#eea1dc); co
 
 @media(max-width:560px){
   .org-name{ font-size:16px; }
-  .media-frame{ aspect-ratio:4/3; }
+  /* No aspect-ratio for .media-frame, so nothing to override here */
 }
